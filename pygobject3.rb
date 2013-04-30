@@ -2,9 +2,10 @@ require 'formula'
 
 class Pygobject3 < Formula
   homepage 'http://live.gnome.org/PyGObject'
-  url 'http://ftp.gnome.org/pub/GNOME/sources/pygobject/3.2/pygobject-3.2.2.tar.xz'
-  sha256 '4653790baaff0176fd814b88cfb5378c45906a120b25d01be2554f423b726eb0'
+  url 'http://ftp.gnome.org/pub/GNOME/sources/pygobject/3.8/pygobject-3.8.1.tar.xz'
+  sha256 'e85c8ec64238ce88ec1e905497f5a2eaa947a7f4050e338d21ec510d8a50eacb'
 
+  depends_on 'xz' => :build
   depends_on 'pkg-config' => :build
   depends_on 'gobject-introspection'
   depends_on 'glib'
