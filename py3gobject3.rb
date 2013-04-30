@@ -7,15 +7,16 @@ class Py3gobject3 < Formula
 
   depends_on 'xz' => :build
   depends_on 'pkg-config' => :build
-  depends_on 'gobject-introspection'
+  depends_on 'jessevdk/codyn/gobject-introspection'
   depends_on 'glib'
   depends_on 'cairo'
-  depends_on 'py2cairo'
+  depends_on 'jessevdk/codyn/py3cairo'
 
   option :universal
 
   def install
     ENV.universal_binary if build.universal?
+    ENV['PYTHON'] = '/usr/local/bin/python3'
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

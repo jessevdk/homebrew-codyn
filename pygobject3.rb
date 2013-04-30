@@ -7,7 +7,7 @@ class Pygobject3 < Formula
 
   depends_on 'xz' => :build
   depends_on 'pkg-config' => :build
-  depends_on 'gobject-introspection'
+  depends_on 'jessevdk/codyn/gobject-introspection'
   depends_on 'glib'
   depends_on 'cairo'
   depends_on 'py2cairo'
