@@ -19,7 +19,7 @@ class Py3gobject3 < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-python=python3"
+                          "--with-python=/usr/local/bin/python3"
 
     system "make install"
   end
