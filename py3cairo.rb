@@ -32,7 +32,9 @@ class Py3cairo < Formula
     # https://github.com/mxcl/homebrew/issues/12893
     # https://github.com/mxcl/homebrew/issues/14781
     # https://bugs.freedesktop.org/show_bug.cgi?id=51544
-    ENV['LINKFLAGS'] = "-L#{%x(python3-config --prefix).chomp}/lib"
+    ENV['PATH'] = ENV['PATH'] + ':/usr/local/bin'
+    ENV['LINKFLAGS'] = "-L#{%x(/usr/local/bin/python3-config --prefix).chomp}/lib"
+    ENV['PYTHON'] = 'python3'
     system "./waf", "configure", "--prefix=#{prefix}", "--nopyc", "--nopyo"
     system "./waf", "install"
   end
@@ -44,6 +46,6 @@ class Py3cairo < Formula
   end
 
   def which_python
-    "python3" + `python3 -c 'import sys;print(sys.version[:3])'`.strip
+    "python3" + `/usr/local/bin/python3 -c 'import sys;print(sys.version[:3])'`.strip
   end
 end
