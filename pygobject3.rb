@@ -18,8 +18,7 @@ class Pygobject3 < Formula
     ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-						  "--with-python=/usr/bin/python2.6"
+                          "--prefix=#{prefix}"
 
     system "make install"
   end
