@@ -11,6 +11,7 @@ class GobjectIntrospection < Formula
   depends_on 'xz' => :build
   depends_on 'glib'
   depends_on 'libffi'
+  depends_on :python
 
   def install
     ENV.universal_binary if build.universal?
