@@ -33,10 +33,11 @@ class Py3cairo < Formula
     # https://github.com/mxcl/homebrew/issues/14781
     # https://bugs.freedesktop.org/show_bug.cgi?id=51544
     ENV['PATH'] = ENV['PATH'] + ':/usr/local/bin'
-    ENV['LINKFLAGS'] = "-L#{%x(/usr/local/bin/python3-config --prefix).chomp}/lib"
     ENV['PYTHON'] = 'python3'
-    system "./waf", "configure", "--prefix=#{prefix}", "--nopyc", "--nopyo"
-    system "./waf", "install"
+    #ENV['LINKFLAGS'] = "-L#{%x(/usr/local/bin/python3-config --prefix).chomp}/lib"
+    ENV['PYTHON'] = "#{HOMEBREW_PREFIX}/bin/python3"
+    system "#{HOMEBREW_PREFIX}/bin/python3", "waf", "configure", "--prefix=#{prefix}", "--nopyc", "--nopyo"
+    system "#{HOMEBREW_PREFIX}/bin/python3", "waf", "install"
   end
 
   def caveats; <<-EOS.undent
