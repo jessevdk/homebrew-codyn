@@ -2,8 +2,8 @@ require 'formula'
 
 class GobjectIntrospection < Formula
   homepage 'http://live.gnome.org/GObjectIntrospection'
-  url 'http://ftp.acc.umu.se/pub/GNOME/sources/gobject-introspection/1.36/gobject-introspection-1.36.0.tar.xz'
-  sha256 'e3e76d9d428e7534761bf8cdf75338865a4b0872e8052bef51792744608b6383'
+  url 'http://ftp.acc.umu.se/pub/GNOME/sources/gobject-introspection/1.38/gobject-introspection-1.38.0.tar.xz'
+  sha256 '3575e5d353c17a567fdf7ffaaa7aebe9347b5b0eee8e69d612ba56a9def67d73'
 
   option :universal
 
