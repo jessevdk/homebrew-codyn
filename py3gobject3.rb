@@ -16,11 +16,14 @@ class Py3gobject3 < Formula
 
   def install
     ENV.universal_binary if build.universal?
+
+    pypath = ENV['HOMEBREW_PREFIX'] + '/bin/python3'
+
     ENV['PYTHON'] = '/usr/local/bin/python3'
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-python=/usr/local/bin/python3"
+                          "--with-python=#{pypath}"
 
     system "make install"
   end
