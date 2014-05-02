@@ -1,20 +1,20 @@
 require 'formula'
 
 class JsonGlib < Formula
-  homepage 'http://live.gnome.org/JSonGLib'
-  url 'ftp://ftp.gnome.org/pub/GNOME/sources/json-glib/0.16/json-glib-0.16.0.tar.xz'
-  sha256 'e4a3fd2f399e4c148aad608e6ed0a94095f2ddde9dd12f5aa2f072ecae5c1d37'
+  homepage 'http://live.gnome.org/JsonGlib'
+  url 'http://ftp.gnome.org/pub/GNOME/sources/json-glib/0.16/json-glib-0.16.2.tar.xz'
+  sha256 'a95475364ec27ab1d2a69303cf579018558bfb6981e3498b3aaf1e6401f7422c'
 
   option :universal
 
   depends_on 'pkg-config' => :build
-  depends_on 'xz' => :build
   depends_on 'glib'
+  depends_on 'xz' => :build
 
   def install
     ENV.universal_binary if build.universal?
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make install"
   end
