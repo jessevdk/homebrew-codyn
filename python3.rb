@@ -83,7 +83,11 @@ class Python3 < Formula
 
     if build.universal?
       ENV.universal_binary
-      args << "--enable-universalsdk" << "--with-universal-archs=intel"
+
+      sdkversion=`sw_vers -productVersion`.chomp.gsub(/([0-9]*\.[0-9]*).*/, "\\1")
+      sdkpath=`xcrun --sdk macosx#{sdkversion} --show-sdk-path`.chomp
+
+      args << "--enable-universalsdk=#{sdkpath}" << "--with-universal-archs=intel"
     end
 
     # Allow sqlite3 module to load extensions: http://docs.python.org/library/sqlite3.html#f1
